@@ -1,0 +1,52 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata:
+  labels:
+    app: devopsdemo
+  name: devopsdemo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devopsdemo
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: devopsdemo
+    spec:
+      containers:
+      - image: unipertestregistry.azurecr.io/kubernetesdemoappone:63580
+        imagePullPolicy: Always
+        name: devopsdemo
+        resources:
+          requests:
+            memory: "400Mi"
+            cpu: "100m"
+          limits:
+            memory: "500Mi"
+            cpu: "200m"
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        env:
+        - name: URL
+          valueFrom:
+            configMapKeyRef:
+              name: demoappconfigmap
+              key: url
+        - name: USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: demoappconfigmap
+              key: name
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        securityContext:
+          privileged: false
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: false
+      restartPolicy: Always
+status: {}
