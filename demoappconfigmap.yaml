@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: demoappconfigmap
+data:
+    name: "Put your name here"
+    url: http://devopsdemo.app2.svc.cluster.local/app/message
