@@ -19,7 +19,8 @@ spec:
     - from:
       - namespaceSelector:
           matchLabels:
-            namespace: app2         
+            namespace: app2   
+    # till here
 
   egress:
     - to:
