@@ -3,7 +3,7 @@ Prerequisites
 - You are running the workshop in Google Chrome or Microsoft Edge Explorer
 - You have been granted access to this repository and Github Codespaces
 - Your user has been assigned to a namespace for this exercise
-- You can access the application on URL "https://nonprod-aks-test.uniperapps.com/{your_namespace_name}". Put your namespace in place of "{your_namespace_name}". Example: https://nonprod-aks-test.uniperapps.com/app1
+- You can access the application on URL "https://nonprod-aks-test-ex.uniperapps.com/{your_namespace_name}". Put your namespace in place of "{your_namespace_name}". Example: https://nonprod-aks-test-ex.uniperapps.com/app1
 
 ## Set up
 - Open the azuredevops project with codespaces. Create a personal codespace and wait until it is configured (2 - 3 minutes)
@@ -25,7 +25,7 @@ Prerequisites
     - kubectl get deployments -n {your_namespace_name} #Lists all the deployments in your namespace, in this case, you are supposed to see "devopsdemo"
     - kubectl get pods -n {your_namespace_name} #Lists all pods running in your namespace
 - Invoke URL
-  - https://nonprod-aks-test.uniperapps.com/{your_namespace_name} (place your namespace name)
+  - https://nonprod-aks-test-ex.uniperapps.com/{your_namespace_name} (place your namespace name)
   - Once you goto the URL, you are supposed to see a web-page with a message.
 - Change your name using configMap
   - ConfigMaps are used to store non-confidential data in key-value pairs. These key value pairs are available as environment variables for a Pod.
