@@ -1,0 +1,14 @@
+# Below code creates 'namespace-admin-rbg' RoleBinding which attaches the AAD Group or users to a Role with Namespace admin priveleges. 
+# Note: KIDs must be in uppercase.
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: namespace-admin
+subjects:
+- kind: User
+  name: # Place your KID here
+roleRef:
+  kind: Role #this must be Role or ClusterRole
+  name: namespace-admin # must match the name of the Role
+  apiGroup: rbac.authorization.k8s.io
