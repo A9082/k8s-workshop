@@ -100,7 +100,7 @@ Prerequisites
 - Check logs. To check the logs of the ingress-controller, run the following command with pod name of the first pod.
   - kubectl logs "pod_name" -n ingress-controller -f
 - Access your application again using the URL, you will notice your each access is getting logged.
-### 5. Network Policies
+### 4. Network Policies
 - Network Policies are configured to regulate the traffic between two namespaces. Here, the network policies are configured to allow bi-directional communication between your namespace and your partner's namespace. Run following command to check the network policy of your namespace:
   - kubectl get networkpolicy -n "your namespace name"
   - Currently only one Network Policy is in place: kubernetes-namespace-network-policy, you can describe it using the following command:
@@ -125,7 +125,7 @@ Prerequisites
       - The above output means the communication is allowed (HTTP/1.1 200)
     - You can exit the pod using the command `exit`. Once you are outside, again change the networkpolicy file by removing the incoming traffic, apply the changed file, get into the pod again and run the above mentioned CURL command. You will notice, it keeps you waiting for the output which means communication is not allowed.
     - After checking, exit from the pod and revert the changes and apply the network policy again.
-### 6. Pod Security Policies
+### 5. Pod Security Policies
 - Containers can optionally run in a privileged mode, which means that the process inside the container has unrestricted access to the host system's resources. In most cases, it’s a security risk to let the container run in privileged mode. Setting privileged to false will prevent the container from running in privileged mode.
 - Try to deploy a privileged pod
   - Edit devopsdemo-deployment.yaml file, change value of `privileged` to true under `securityContext`. Apply the changes by running the following command:
