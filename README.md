@@ -108,8 +108,8 @@ Prerequisites
     - Under spec -> ingress in `from` you specify from which namespace you will allow the incoming traffic from. Currently one of the `from` is your partner's namespace. To stop incoming traffic from your partner's namespace, remove just the `from` with your partner's namespace, re-apply the file using following command
       - kubectl apply -f kubernetesnetworkpolicy.yaml -n "your namespace name"
       - Verify that when your partner tries to access the message from your namespace, it keeps on waiting. Revert the changes and apply the changed file again using above command.
-- Validate result (By getting inside the Pod)
-  - To get inside the pod, first get the pod name.
+- Validate result (By logging into the Pod)
+  - To get into the pod, first get the pod name.
   - kubectl get pods -n "your namespace name" #Copy the pod name
   - Next, run following command to get inside the pod
     - kubectl exec -ti "pod name" -n "your namespace name" -- /bin/sh
