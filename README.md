@@ -6,7 +6,7 @@ Prerequisites
 - You can access the application on URL "https://nonprod-aks-test-ex.uniperapps.com/{your_namespace_name}". Put your namespace in place of "{your_namespace_name}". Example: https://nonprod-aks-test-ex.uniperapps.com/app1
 
 ## Set up
-- Open the azuredevops project with codespaces. Create a personal codespace and wait until it is configured (2 - 3 minutes)
+- Open the k8s-workshop project with codespaces. Create a personal codespace and wait until it is configured (2 - 3 minutes)
 - Open this Readme file
 - Follow the instruction to login in to subscription and to cluster
 - Login from the command line:
@@ -20,7 +20,7 @@ Prerequisites
 ### 0. Setup
 - Check access to the cluster
   - After you run "az aks get-credentials --resource-group `resource group name` --name `cluster name`", you will be asked to go to a URL and enter the code, if you do not see any error, it means you have access to the cluster.
-- See pods and deployments
+- See pods and deployments (and other objects by interest)
   - Run
     - kubectl get deployments -n {your_namespace_name} #Lists all the deployments in your namespace, in this case, you are supposed to see "devopsdemo"
     - kubectl get pods -n {your_namespace_name} #Lists all pods running in your namespace
