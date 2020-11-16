@@ -1,0 +1,92 @@
+###############################
+Login & Access to the Cluster
+###############################
+
+az login
+az account set --subscription subscription id
+az aks get-credentials --resource-group resource group name --name cluster name
+
+###############################
+Acess your Namespace
+###############################
+
+############
+Deployments
+############
+kubectl get ns                                                     --Get list of all Namespaces
+kubectl get deployments -n "namespace name"                        --Get list of Deployments in your Namespaces
+kubectl get deployments -n "namespace name" -o yaml                --Get list of Deployment's YAML files in your Namespaces
+kubectl describe deployments -n "namespace name"                   --Describe Deployments
+kubectl delete deployment "deployment name" -n "namespace name"    --Delete a Deployment from your Namespace
+
+############
+Pods
+############
+kubectl get pods -n "namespace name"                               --Get list of Pods in your Namespaces
+kubectl get pods -n "namespace name" -o yaml                       --Get list of Pod's YAML files in your Namespaces
+kubectl describe pods -n "namespace name"                          --Describe Pods
+kubectl delete pod "pod name" -n "namespace name"                  --Delete a Pods from your Namespace
+
+############
+Services
+############
+kubectl get svc -n "namespace name"                                --Get list of Services in your Namespaces
+kubectl get svc -n "namespace name" -o yaml                        --Get list of Service's YAML files in your Namespaces
+kubectl describe svc -n "namespace name"                           --Describe Services
+kubectl delete svc "service name" -n "namespace name"              --Delete a Service from your Namespace
+
+############
+Ingress
+############
+kubectl get ingress -n "namespace name"                            --Get list of Ingresses in your Namespaces
+kubectl get ingress -n "namespace name" -o yaml                    --Get list of Ingress's YAML files in your Namespaces
+kubectl describe ingress -n "namespace name"                       --Describe Ingress
+kubectl delete ingress "ingress name" -n "namespace name"          --Delete a Ingress from your Namespace
+
+############
+ConfigMaps
+############
+kubectl get configmap -n "namespace name"                          --Get list of ConfigMaps in your namespace
+kubectl apply -f demoappconfigmap.yaml -n "namespace name"         --Deploy a ConfigMap in your Namepsace
+kubectl delete pod "pod name" -n "namespace name"                  --Delete pod to see the changes done in ConfigMap
+
+###################
+Roles/RoleBindings
+###################
+kubectl get roles -n "namespace name"                              --Get list of Roles in your Namespace
+kubectl get rolebindings -n "namespace name"                       --Get list of RoleBindings in your Namespace
+
+###################
+NetworkPolicies
+###################
+kubectl get networkpolicy -n "namespace name"                      --Get list of NetworkPolicies in your Namespace
+
+kubectl get events -n "namespace name"                             --Get the events of your Namespace
+kubectl apply -f file_name.yaml -n "namespace name"                --Create a Resource (Deployment, Pod, Service, ConfigMap, Ingress, Roles, etc.) in your Namespace
+kubectl describe resourcequota -n "namespace name"                 --Check the ResourceQuota of your Namespace
+
+###############################
+Scale Up/Down (Make copies)
+###############################
+kubectl scale deployment.v1.apps/devopsdemo --replicas=2 -n "namespace name"      --Scale up your application to 2 (Make a copy of your application to manage the load)
+kubectl scale deployment.v1.apps/devopsdemo --replicas=1 -n "namespace name"      --Scale down your application to 1
+
+###############################
+Get Logs of your Pod
+###############################
+kubectl get pods -n "namespace name"                               --Get Pods in your Namespace to copy the Pod name
+kubectl logs "pod name" -n "namespace name"                        --Get logs of your Pod
+kubectl logs "pod name" -n "namespace name" -f                     --Get live logs of your Pod, to Exit press Ctrl + C
+
+#######################################
+Access your Pod (Log-in into your Pod
+#######################################
+kubectl get pods -n "namespace name"                               --Get Pods in your Namespace to copy the Pod name
+kubectl exec -ti "pod name" -n "your namespace name" -- /bin/sh    --Get inside the Pod (Access the shell of your Pod), to Exit press Ctrl + C
+
+#######################################
+Access ingress-controller
+#######################################
+kubectl get pods -n ingress-controller                             --Get Pods in ingress-controller Namespace to copy the Pod name
+kubectl logs "pod name" -n ingress-controller                      --Get logs of the Pods in ingress-controller
+kubectl logs "pod name" -n ingress-controller -f                   --Get live logs of the Pods in ingress-controller, to Exit press Ctrl + C
