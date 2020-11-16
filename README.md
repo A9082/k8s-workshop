@@ -60,7 +60,7 @@ Prerequisites
 - Add a user (to allow access to your namespace)
   - Edit file namespace-admin-rbg.yaml, add the user's KID (all upper case except uniper.energy. Ex. KID@uniper.energy) in the subjects section, one of them should be yours. Run the following command:
   - kubectl apply -f namespace-admin-rbg.yaml -n "your namespace name"
-  - After running the above command, the user will have access to your namespace. Check by running the following command:
+  - After running the above command, the user (your partner) will have access to your namespace. Ask your partner to check by running the following command:
   - kubectl get pods -n "your namespace name"
 - Remove user (to remove user just added in the previous step)
   - Edit file namespace-admin-rbg-single-user.yaml, makes sure only your KID is added.
