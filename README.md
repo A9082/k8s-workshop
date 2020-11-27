@@ -29,7 +29,7 @@ Prerequisites
   - Once you goto the URL, you are supposed to see a web-page with a message.
 - Change your name using configMap
   - ConfigMaps are used to store non-confidential data in key-value pairs. These key value pairs are available as environment variables for a Pod.
-  - Change the value of the name key in demoappconfigmap.yaml. Ex. name: your_name. After changing the name, run the following command:
+  - Change the value of the name key in demoappconfigmap.yaml. Ex. name: your_name. Also, change the service name's namespace with your partner's namespace in the URL. Example "http://devopsdemo.app27.svc.cluster.local/app/message" in this URL, replace the app27 with your partner's namespace. After changes, run the following command:
   - kubectl apply -f demoappconfigmap.yaml -n "your_namespace"
   - The above command does not trigger rolling update (updates to a deployment). To see the changes, first delete the pods using following command:
   - kubectl delete pods -n "your namespace name" --all #Deletes all pods from your namespace.
