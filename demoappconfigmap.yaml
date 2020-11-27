@@ -4,4 +4,4 @@ metadata:
     name: demoappconfigmap
 data:
     name: "Put your name here"
-    url: http://devopsdemo.app2.svc.cluster.local/app/message
+    url: http://devopsdemo."put your partners's namespace here".svc.cluster.local/app/message
